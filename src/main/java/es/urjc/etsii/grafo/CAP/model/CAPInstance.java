@@ -8,7 +8,7 @@ public class CAPInstance extends Instance {
 
     // Problem parameters
     public int     nN;
-    public final int nM = 2; // CAP al
+    public int nM = -1; // nRows, parsed from instance file
     public int[] L;
     public int[][]  W;
 
