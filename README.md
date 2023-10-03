@@ -42,6 +42,25 @@ Next non-blank line contains N numbers representing the width of each facility.
 Then, a matrix of size NxN is provided, where each cell contains the flow between facilities (i,j), where
 0 <= i < N and 0 <= j < N. Matrix is symmetric, so `flow[i][j] == flow[j][i]`.
 
+## Properties used for instance classification and selection
+We have considered instance data as a graph (facility flow being weighted edges if not zero), and used the following properties:
+- num_facilities
+- num_edges
+- facility_max_degree
+- facility_min_degree
+- facility_avg_degree
+- facility_std_degree
+- is_regular
+- facility_max_size
+- facility_min_size
+- facility_avg_size
+- facility_std_size
+- edge_max_weight
+- edge_min_weight
+- edge_avg_weight
+- edge_std_weight
+- density
+
 ## Cite
 Consider citing the original SFMRFLP paper if used in your own work, or the Autoconfig proposal.
 
