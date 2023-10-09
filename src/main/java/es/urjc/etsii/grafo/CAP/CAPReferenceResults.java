@@ -28,7 +28,18 @@ public class CAPReferenceResults extends ReferenceResultProvider {
 
     @Override
     public ReferenceResult getValueFor(String instanceName) {
-        return this.sotaResults.getOrDefault(instanceName, new ReferenceResult());
+        var ref = this.sotaResults.get(instanceName);
+        if(ref != null){
+            return ref;
+        }
+        // try removing suffix
+        var alternativeName = instanceName.replaceAll("_\\d\\.txt", ".txt");
+        ref = this.sotaResults.get(alternativeName);
+        var result = new ReferenceResult();
+        if(ref != null){
+            result.setTimeInSeconds(ref.getTimeInSeconds()); // ignoring scores, only use the time
+        }
+        return result;
     }
 
     @Override
