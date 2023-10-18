@@ -6,6 +6,6 @@ java -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9010 -Dc
 -Xmx24G \
 -Xms24G \
 -jar target/SFMRFLP-0.19-SNAPSHOT.jar \
---autoconfig \
+--solver.experiments=FinalExperiment \
 --solver.parallelExecutor=true \
---solver.nWorkers=32
+--solver.nWorkers=8
