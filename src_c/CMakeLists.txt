@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.17)
 
-set(PROJECT_NAME MCGP)
+set(PROJECT_NAME SFMRFLP)
 set(SRC_PATH src)
 
 set(CMAKE_CXX_STANDARD 14)

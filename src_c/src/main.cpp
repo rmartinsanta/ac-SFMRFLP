@@ -17,13 +17,12 @@ void LoadInstance  (const string& pathInstance);
 int main(int argc, const char *argv[]) {  
 
  // Console inputs
-    LoadInstance(argv[1]);
-    data.nM = stoi(argv[2]);
-    int ne  = stoi(argv[3]);
-    data.TC = stod(argv[4]);
-    data.S  = stoi(argv[5]);
-    if(data.S==0) data.S = numeric_limits<int>::max();
-    if(argc==7) LoadProperties(argv[6]);
+    LoadInstance(argv[1]); // argv[1] = instance path
+    int ne  = stoi(argv[2]); // argv[2] = seed?
+    data.TC = stod(argv[3]); // argv[3] = Termination Criteria, looks like is equal to the number of iterations
+    data.S  = stoi(argv[4]); // argv[4] = Logs are saved at every S iterations
+    if(data.S==0) data.S = numeric_limits<int>::max(); // if 0 no logs are saved?
+    if(argc==6) LoadProperties(argv[5]);
             
  // Seed for random number generation
     random_device rd;
@@ -143,7 +142,8 @@ void LoadInstance(const string& pathInstance) {
         cin.get();
     }
 
- // Loads the Problem dimensions    
+ // Loads the Problem dimensions
+    file >> data.nM;
     file >> data.nN;
 
  // Includes fake facilities

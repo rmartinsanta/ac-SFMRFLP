@@ -54,21 +54,21 @@
         vecInt  L;
         matInt  W;
      // Algorithm parameters
-        int     NI = 1;             // Number of Islands
-        int     NM = 1;             // Number of Algorithms in each Island
-        string  MM = "none";        // Migration Strategy: none, ring, fully, master
-        int     R  = 1;             // Best solutions migrates at every N·R iterations 
-        int     S  = -1;            // Logs are saved at every S iterations
-        double  TC = 1.0;           // Termination Criteria
+        int     NI = 4;             // Number of Islands
+        int     NM = 1;             // 1 o 5?? Number of Algorithms in each Island
+        string  MM = "master";      // Migration Strategy: none, ring, fully, master
+        int     R  = 20;            // Best solutions migrates at every N·R iterations
+        int     S  = 1;             // Logs are saved at every S iterations
+        double  TC = 2000;          // Termination Criteria
      // Metaheuristic parameters
         int     NC = 1;             // Number of constructions
-        string  MC = "random";      // Construction: random, greedy11, greedy12, greedy21, greedy22
-        double  AG = 0.75;          // Alpha coefficient controlling the greediness: 0-purely random, 1-purely greedy
-        string  ME = "extended";    // Exploration: vinser, vinter, einser, einter, extended
-        string  MS = "grasp";       // Search: grasp, ils, vnd, bvns, gvns, sa
-        int     V0 = 1;             // Perturbation procedure for ILS
-        int     V1 = 1;             // Shake procedure for VNS (Basic or General)
-        int     V2 = 1;             // Exploration sequence of LS's in VND
+        string  MC = "greedyB2";    // Construction: random, equal, balanced, greedyA1, greedyA2, greedyB1, greedyB2
+        double  AG = 0.50;          // Alpha coefficient controlling the greediness: 0-purely random, 1-purely greedy
+        string  ME = "ext_fhi";     // Exploration: vinser, vinter, einser, einter, extended
+        string  MS = "bvns";       // Search: grasp, ils, vnd, bvns, gvns, sa
+        int     V0 = 1;             // UNUSED, only for ILS: Perturbation procedure for ILS
+        int     V1 = 2;             // Shake procedure for VNS (Basic or General)
+        int     V2 = 1;             // UNUSED, only for GVNS: Exploration sequence of LS's in VND
      // Tabu List specific parameters
         int     NT = 0;             // Maximum number of elements in the Tabu list
      // GRASP specific parameters
