@@ -13,7 +13,7 @@ instances:
 
   path:
     # Default instance path for all experiments, can be overridden.
-    default: 'instances/all'
+    default: 'instances/big/'
     irace: 'instances/tuning/instances'
 
     # Override default instance path only for the experiment declared in file PreliminarExperiment.java
@@ -37,11 +37,11 @@ solver:
 
   # Use parallel executor DISABLE IF THE ALGORITHM IS ALREADY PARALLELIZED
   # Valid Values: true, false
-  parallelExecutor: false
+  parallelExecutor: true
 
   # Number of workers to use if parallelExecutor is enabled
   # any number between 1 and MAX_INT, or -1 to automatically decide at runtime (available threads / 2)
-  nWorkers: -1
+  nWorkers: 8
 
   # Execute benchmark before starting solver? False to skip benchmark.
   benchmark: true
@@ -71,7 +71,7 @@ solver:
   #### End autoconfig properties
 
   # Enable or disable metrics tracking. Force enabled if using autoconfig.
-  metrics: false
+  metrics: true
 
 # Enable irace integration? Check IRACE Wiki section before enabling
 irace:

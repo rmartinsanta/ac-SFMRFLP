@@ -114,7 +114,7 @@ public class CAPSolution extends Solution<CAPSolution, CAPInstance> {
      */
     @Override
     public String toString() {
-        return "%s -> %s".formatted(this.obj, Arrays.deepToString(this.rho));
+        return "%s -> %s".formatted(this.obj / 4.0, Arrays.deepToString(this.rho));
     }
 
     // START helper methods that do not exist in Java, map them from C equivalents
@@ -160,27 +160,6 @@ public class CAPSolution extends Solution<CAPSolution, CAPInstance> {
 
     // END helper methods
 
-    // START solution.cpp
-//    public void Construct() {
-//
-//        // Constructs a new solution
-//        switch (data.MC) {
-//            case "random" -> ConstructRandom(1);                 // Corresponde con C0 del paper
-//            case "equal" -> ConstructRandom(data.nN / data.nM);  // NO USAR
-//            case "balanced" -> ConstructBalanced();                 // NO USAR
-//            case "greedyA1" -> ConstructGreedyA(1, data.AG); // NO USAR greedy 1 GR, greedy != 1 RG. TODO Pasar a booleano
-//            case "greedyA2" -> ConstructGreedyA(2, data.AG); // NO USAR
-//            case "greedyB1" -> ConstructGreedyB(1, data.AG); // Corresponde con C1 del paper
-//            case "greedyB2" -> ConstructGreedyB(2, data.AG); // Corresponde con C2 del paper
-//            case "greedyC1" -> ConstructGreedyC(1, data.AG); // NO USAR
-//            case "greedyC2" -> ConstructGreedyC(2, data.AG); // NO USAR
-//            default -> throw new RuntimeException("Wrong construction method (x).");
-//        }
-//
-//        // Evaluates de solution
-//        Evaluate();
-//
-//    }
 
 //******************************************************************************
 // Eval Operators: Full solution and full generic move
@@ -3151,8 +3130,11 @@ public class CAPSolution extends Solution<CAPSolution, CAPInstance> {
                 do {
                     l = rndInt(0, (rho[i].size() - 1));
                 } while (l == j);
-                if (move == 1) Exchange(i, j, i, l);
-                else Insert(i, j, i, l);
+                if (move == 1) {
+                    Exchange(i, j, i, l);
+                } else {
+                    Insert(i, j, i, l);
+                }
             }
         }
 
@@ -3296,4 +3278,22 @@ public class CAPSolution extends Solution<CAPSolution, CAPInstance> {
         }
     }
     // END shakes.cpp
+
+
+    public List<Integer>[] getRho() {
+        return rho;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CAPSolution that = (CAPSolution) o;
+        return Arrays.equals(rho, that.rho);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(rho);
+    }
 }

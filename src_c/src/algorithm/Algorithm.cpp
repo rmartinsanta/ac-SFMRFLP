@@ -16,25 +16,7 @@ Algorithm::Algorithm(const string& pathInstance, int ne) {
     vector<string> tokens = split(pathInstance+"/","/");   
     tokens = split(tokens.back(),".");
     string instance = tokens[0];
-    
-    fileEvol.open("logs/evol_"+instance+"_"+to_string(data.nM)+"_"+to_string(ne)+".txt");
-    if(!fileEvol) {
-        cout << "\n The fileEvol file can not be opened.";
-        exit(1);
-    }
-  
-    fileCost.open("logs/cost_"+instance+"_"+to_string(data.nM)+"_"+to_string(ne)+".txt");
-    if(!fileEvol) {
-        cout << "\n The fileCost file can not be opened.";
-        exit(1);
-    }
-        
-    fileSolu.open("logs/solu_"+instance+"_"+to_string(data.nM)+"_"+to_string(ne)+".txt");
-    if(!fileEvol) {
-        cout << "\n The fileSolu file can not be opened.";
-        exit(1);
-    }
-    
+
 }
 
 //Algorithm::Algorithm(const Algorithm &orig) { }
@@ -43,10 +25,6 @@ Algorithm::~Algorithm() {
     
     for(int i=0; i<data.NI; i++) delete islands[i];
     delete[] islands;
-    
-    fileEvol.close();
-    fileCost.close();
-    fileSolu.close();
 
 }
 
@@ -157,35 +135,14 @@ Solution Algorithm::GetBest() {
 //-----------------------------------------
 // Logs the algorithm evolution to console 
 //-----------------------------------------
-void Algorithm::EvolutionConsole(bool force, int it) {
+void Algorithm::EvolutionConsole(bool force, int it, double tcpu) {
 
     if((force) || (it%data.S==0)) {
-        cout << " Iteration" << setw(12) << it << "     Cost";
+        cout << it << ". \tT(s): "<<tcpu << " \t"<< "\tCost: ";
         for(int i=0; i<data.NI; i++) cout << setw(12) << fixed << setprecision(1) << GetBest(i).obj/4.0;
         cout << endl;
     }
     cout << setprecision(6);  
-    
-}
-
-//-----------------------------------------
-// Logs the algorithm evolution to archive 
-//-----------------------------------------
-void Algorithm::EvolutionArchive(bool force, int it, double tcpu) {
-       
-    if((force) || (it%data.S==0)) {
-        fileEvol << setw(10) << fixed << setprecision(4) << tcpu;
-        for(int i=0; i<data.NI; i++) fileEvol << setw(12) << fixed << setprecision(1) << GetBest(i).obj/4.0;
-        fileEvol << endl;
-    }
-}
-
-//---------------------------------------
-// Saves the best objs and res to a file 
-//---------------------------------------
-void Algorithm::SaveCost() {
-   
-    fileCost << fixed << setprecision(1) << GetBest().obj/4.0;
     
 }
 
@@ -195,14 +152,14 @@ void Algorithm::SaveCost() {
 void Algorithm::SaveSolution() {
    
     Solution solution = GetBest();
-   
+    cout << endl << "--SOLUTION--" << endl;
     for(int i=0; i<data.nM; i++) {
-        for(int u: solution.rho[i]) fileSolu << u+1 << " ";
-        fileSolu << endl;
+        for(int u: solution.rho[i]) {
+            cout << u << " ";
+        }
+        cout << endl;
     }
-    
-    fileSolu << endl;
-    
+    cout << endl;
 }
 
 //--------------------------------

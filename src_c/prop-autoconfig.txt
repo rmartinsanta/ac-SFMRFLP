@@ -1,0 +1,15 @@
+# Constructive Constructive.alpha=0.13 Constructive.type='"greedyB1"' .destructionReconstruction=CAPShake .destructionReconstruction_CAPShake.type='"6"' .improver=CAPLS .improver_CAPLS.type='"ext_fhi"' .maxIterations=18236 .stopIfNotImprovedIn=786175
+# Constructive Constructive.alpha=0.39 Constructive.type='"greedyB1"' .destructionReconstruction=CAPShake .destructionReconstruction_CAPShake.type='"1"' .improver=CAPLS .improver_CAPLS.type='"ext_fhi"' .maxIterations=894973 .stopIfNotImprovedIn=749
+# Algorithm parameters
+  NI = 4           # Number of Islands
+  NM = 5           # Number of Algorithms in each Island
+  MM = master      # Migration Strategy: none, ring, fully, master
+  R  = 10          # Best solutions migrates at every N*R iterations
+# Metaheuristic parameters
+  MC = greedyB1    # Construction: random, equal, balanced, greedy1, greedy2 (A, B, C)
+  AG = 0.13         # Alpha coefficient controlling the greedyness: 0-purely random, 1-purely greedy
+  ME = ext_fhi     # Exploration: exc, ins, ext
+  MS = bvns        # Search: grasp, ils, vnd, bvns, gvns, sa
+# VNS specific parameters
+  V1 = 2           # Shake procedure  for VNS (Basic or General)
+  B1 = 0.1         # Beta coefficient for VNS (Basic or General)

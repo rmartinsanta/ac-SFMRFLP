@@ -1,9 +1,11 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Validation" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.sdkman/candidates/java/21-graal" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="MAIN_CLASS_NAME" value="es.urjc.etsii.grafo.CAP.Main" />
-    <module name="CAP" />
-    <option name="VM_PARAMETERS" value="-ea --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED" />
+    <module name="SFMRFLP" />
     <option name="PROGRAM_PARAMETERS" value="--logging.level.es.urjc.etsii.grafo=INFO" />
+    <option name="VM_PARAMETERS" value="-ea --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="es.urjc.etsii.grafo.CAP.*" />

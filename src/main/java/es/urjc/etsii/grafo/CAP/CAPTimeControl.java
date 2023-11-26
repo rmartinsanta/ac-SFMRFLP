@@ -19,7 +19,6 @@ public class CAPTimeControl extends TimeLimitCalculator<CAPSolution, CAPInstance
     @Override
     public long timeLimitInMillis(CAPInstance instance, Algorithm<CAPSolution, CAPInstance> algorithm) {
         var nanos = this.referenceResults.getValueFor(instance.getId()).getTimeInNanos();
-        // Max exec time --> reference time * 10
-        return TimeUtil.convert(nanos, TimeUnit.NANOSECONDS, TimeUnit.MILLISECONDS);
+        return TimeUtil.convert(nanos, TimeUnit.NANOSECONDS, TimeUnit.MILLISECONDS) * 2;
     }
 }
