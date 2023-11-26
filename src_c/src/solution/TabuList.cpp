@@ -15,7 +15,7 @@ TabuList::TabuList() {
     
 }
 
-__unused TabuList::TabuList(const TabuList& orig) { }
+TabuList::TabuList(const TabuList& orig) { }
 TabuList::~TabuList() = default;
 
 //----------------------------------
