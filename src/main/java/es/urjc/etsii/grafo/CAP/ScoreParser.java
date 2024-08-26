@@ -29,7 +29,8 @@ public class ScoreParser {
 
     private static final Map<String, List<TreeSet<TimeValue>>> data = new HashMap<>();
 
-    public static void main(String[] args) throws IOException {
+//    public static void main(String[] args) throws IOException {_main(args);}
+    public static void _main(String[] args) throws IOException {
         if (args.length != 2) {
             System.out.println("Usage: java -jar file.jar solutionsFolder instancePattern");
             System.exit(-1);

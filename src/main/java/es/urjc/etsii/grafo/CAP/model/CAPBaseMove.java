@@ -5,7 +5,7 @@ import es.urjc.etsii.grafo.solution.LazyMove;
 /**
  * Base class for all movements for the CAP problem. All movements should extend this class.
  */
-public abstract class CAPBaseMove extends LazyMove<CAPSolution, CAPInstance> {
+public abstract class CAPBaseMove extends LazyMove<CAPBaseMove, CAPSolution, CAPInstance> {
 
     /**
      * Move constructor
@@ -23,7 +23,7 @@ public abstract class CAPBaseMove extends LazyMove<CAPSolution, CAPInstance> {
      * false if for any reason the movement is not applied or the solution does not change after executing the move
      */
     @Override
-    protected abstract boolean _execute(CAPSolution solution);
+    protected abstract CAPSolution _execute(CAPSolution solution);
 
     /**
      * Get the movement value, represents how much does the move changes the f.o of a solution if executed
@@ -44,7 +44,7 @@ public abstract class CAPBaseMove extends LazyMove<CAPSolution, CAPInstance> {
      * @return the next move in this generator sequence if there is a next move, return null to signal end of sequence.
      */
     @Override
-    public LazyMove<CAPSolution, CAPInstance> next(CAPSolution solution) {
+    public CAPBaseMove next(CAPSolution solution) {
         throw new UnsupportedOperationException("Not implemented");
     }
 

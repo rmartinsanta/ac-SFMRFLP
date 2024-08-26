@@ -32,7 +32,9 @@ public class RPDParser {
     private static final Map<String, Double> minV = new HashMap<>();
 
 
-    public static void main(String[] args) throws IOException {
+//    public static void main(String[] args) throws IOException{_main(args);}
+
+    public static void _main(String[] args) throws IOException {
         if (args.length != 3) {
             System.out.println("Usage: java -jar file.jar solutionsFolder instanceName bestKnownValuesFile");
             System.exit(-1);
