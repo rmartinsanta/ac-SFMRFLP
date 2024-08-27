@@ -26,7 +26,9 @@ public class FinalExperiment extends AbstractExperiment<CAPSolution, CAPInstance
         var algorithms = new ArrayList<Algorithm<CAPSolution, CAPInstance>>();
 
         algorithms.add(new CAPC("SOTA", "src_c/prop-sota.txt", timeLimit));
-        algorithms.add(new CAPC("AutoConfig", "src_c/prop-autoconfig.txt", timeLimit));
+        algorithms.add(new CAPC("AutoConfigPaper", "src_c/prop-autoconfig.txt", timeLimit));
+        algorithms.add(new CAPC("AutoConfigPaper2", "src_c/prop-autoconfig2.txt", timeLimit));
+        algorithms.add(new CAPC("AutoConfigNuevo", "src_c/prop-autoconfig-nuevo.txt", timeLimit));
 
         return algorithms;
     }
