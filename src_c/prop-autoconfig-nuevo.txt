@@ -7,9 +7,9 @@
   R  = 10          # Best solutions migrates at every N*R iterations
 # Metaheuristic parameters
   MC = greedyB2    # Construction: random, equal, balanced, greedy1, greedy2 (A, B, C)
-  AG = 0.8056         # Alpha coefficient controlling the greedyness: 0-purely random, 1-purely greedy
+  AG = 0.643         # Alpha coefficient controlling the greedyness: 0-purely random, 1-purely greedy
   ME = ext_fhi     # Exploration: exc, ins, ext
   MS = bvns        # Search: grasp, ils, vnd, bvns, gvns, sa
 # VNS specific parameters
-  V1 = 10           # Shake procedure  for VNS (Basic or General)
+  V1 = 2           # Shake procedure  for VNS (Basic or General)
   B1 = 0.1         # Beta coefficient for VNS (Basic or General)
