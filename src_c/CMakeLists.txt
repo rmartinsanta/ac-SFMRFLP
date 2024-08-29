@@ -5,7 +5,7 @@ set(SRC_PATH src)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp -O3")
-set(EXECUTABLE_OUTPUT_PATH "../binary")
+set(EXECUTABLE_OUTPUT_PATH "binary")
 
 project(${PROJECT_NAME})
 include_directories(${SRC_PATH})

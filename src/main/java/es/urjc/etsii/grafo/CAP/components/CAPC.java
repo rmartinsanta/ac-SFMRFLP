@@ -3,7 +3,7 @@ package es.urjc.etsii.grafo.CAP.components;
 import es.urjc.etsii.grafo.CAP.model.CAPInstance;
 import es.urjc.etsii.grafo.CAP.model.CAPSolution;
 import es.urjc.etsii.grafo.algorithms.Algorithm;
-import es.urjc.etsii.grafo.metrics.BestObjective;
+import es.urjc.etsii.grafo.aop.TimeStats;
 import es.urjc.etsii.grafo.metrics.Metrics;
 import es.urjc.etsii.grafo.services.TimeLimitCalculator;
 import es.urjc.etsii.grafo.util.TimeUtil;
@@ -35,6 +35,7 @@ public class CAPC extends Algorithm<CAPSolution, CAPInstance> {
     }
 
     @Override
+    @TimeStats
     public CAPSolution algorithm(CAPInstance instance) {
         var timeInMillis = this.timeLimit.timeLimitInMillis(instance, this);
         var timeInSeconds = timeInMillis / 1_000.0;
@@ -55,7 +56,7 @@ public class CAPC extends Algorithm<CAPSolution, CAPInstance> {
     }
 
     private CAPSolution parseSolution(CAPInstance instance, String output) {
-        var refTime = Metrics.get(BestObjective.class).getReferenceNanoTime();
+        var refTime = Metrics.get("Default").getReferenceNanoTime();
         var solution = new CAPSolution(instance);
         Pattern p = Pattern.compile("\\*?(\\d+)\\.\\s*T\\(s\\):\\s*(\\d+(?:\\.\\d+)?)\\s*Cost:\\s*(\\d+(?:\\.\\d+)?)\\s*(\\d+(?:\\.\\d+)?)\\s*(\\d+(?:\\.\\d+)?)\\s*(\\d+(?:\\.\\d+)?)");
         var lines = output.split("\n");
@@ -73,7 +74,7 @@ public class CAPC extends Algorithm<CAPSolution, CAPInstance> {
             double cost4 = Double.parseDouble(matcher.group(6));
             double minCost = min(min(cost1, cost2), min(cost3, cost4));
 
-            Metrics.add(BestObjective.class, (long) (time * TimeUtil.NANOS_IN_SECOND) + refTime, minCost);
+            Metrics.add("Default", (long) (time * TimeUtil.NANOS_IN_SECOND) + refTime, minCost);
         }
         while(i < lines.length && !lines[i].toLowerCase().contains("solution")){
             i++;

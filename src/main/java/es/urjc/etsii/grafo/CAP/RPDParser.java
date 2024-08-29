@@ -3,7 +3,6 @@ package es.urjc.etsii.grafo.CAP;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import es.urjc.etsii.grafo.metrics.BestObjective;
 import es.urjc.etsii.grafo.metrics.TimeValue;
 import es.urjc.etsii.grafo.util.TimeUtil;
 import me.tongfei.progressbar.ProgressBar;
@@ -144,7 +143,7 @@ public class RPDParser {
         String algorithmName = wu.algorithm().name();
 
         data.putIfAbsent(algorithmName, new ArrayList<>());
-        var relativeTree = relativize(f.filename, wu.metrics().metrics().get(BestObjective.class.getSimpleName()).values());
+        var relativeTree = relativize(f.filename, wu.metrics().metrics().get("Default").values());
         data.get(algorithmName).add(relativeTree);
     }
 

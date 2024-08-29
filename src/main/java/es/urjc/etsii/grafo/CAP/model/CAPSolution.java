@@ -68,11 +68,6 @@ public class CAPSolution extends Solution<CAPSolution, CAPInstance> {
         return new CAPSolution(this);
     }
 
-    @Override
-    protected boolean _isBetterThan(CAPSolution other) {
-        return DoubleComparator.isLess(this.getScore(), other.getScore());
-    }
-
     /**
      * Get the current solution score.
      * The difference between this method and recalculateScore is that

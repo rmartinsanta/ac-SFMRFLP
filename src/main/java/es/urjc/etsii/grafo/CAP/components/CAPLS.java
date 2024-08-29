@@ -2,10 +2,10 @@ package es.urjc.etsii.grafo.CAP.components;
 
 import es.urjc.etsii.grafo.CAP.model.CAPInstance;
 import es.urjc.etsii.grafo.CAP.model.CAPSolution;
-import es.urjc.etsii.grafo.algorithms.FMode;
 import es.urjc.etsii.grafo.annotations.AutoconfigConstructor;
 import es.urjc.etsii.grafo.annotations.CategoricalParam;
 import es.urjc.etsii.grafo.improve.Improver;
+import es.urjc.etsii.grafo.util.Context;
 import es.urjc.etsii.grafo.util.DoubleComparator;
 import es.urjc.etsii.grafo.util.TimeControl;
 
@@ -15,7 +15,7 @@ public class CAPLS extends Improver<CAPSolution, CAPInstance> {
 
     @AutoconfigConstructor
     public CAPLS(@CategoricalParam(strings = {"exc_bi", "exc_hi", "exc_fi", "ins_f", "ins_bi", "ins_hi", "ext_fhi"}) String type) {
-        super(FMode.MINIMIZE);
+        super(Context.getMainObjective());
         this.type = type;
     }
     
