@@ -20,7 +20,7 @@ public class CAPReferenceResults extends ReferenceResultProvider {
         Files.lines(Path.of(filename)).forEach(l -> {
             var parts = l.split(separator);
             var referenceResult = new ReferenceResult();
-            referenceResult.setScore(parts[1]);
+            referenceResult.addScore(Main.OBJ.getName(), parts[1]);
             referenceResult.setTimeInSeconds(parts[2]);
             sotaResults.put(parts[0], referenceResult);
         });

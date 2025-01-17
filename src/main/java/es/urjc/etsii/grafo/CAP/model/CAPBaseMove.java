@@ -1,11 +1,11 @@
 package es.urjc.etsii.grafo.CAP.model;
 
-import es.urjc.etsii.grafo.solution.LazyMove;
+import es.urjc.etsii.grafo.solution.Move;
 
 /**
  * Base class for all movements for the CAP problem. All movements should extend this class.
  */
-public abstract class CAPBaseMove extends LazyMove<CAPBaseMove, CAPSolution, CAPInstance> {
+public abstract class CAPBaseMove extends Move<CAPSolution, CAPInstance> {
 
     /**
      * Move constructor
@@ -31,22 +31,6 @@ public abstract class CAPBaseMove extends LazyMove<CAPBaseMove, CAPSolution, CAP
      * @return f.o change
      */
     public abstract double getValue();
-
-    /**
-     * Get next move in this sequence.
-     * There are two main strategies to generate moves:
-     * - eagerly: all at once, and store them on a list
-     * - lazily: only under demand, using Streams, like an Iterator
-     * Only the second implementation requires implementing this method. Ignore this method if using the first one.
-     *
-     * @param solution solution used to generate the previous move,
-     *                and where data will be picked for the current move
-     * @return the next move in this generator sequence if there is a next move, return null to signal end of sequence.
-     */
-    @Override
-    public CAPBaseMove next(CAPSolution solution) {
-        throw new UnsupportedOperationException("Not implemented");
-    }
 
     /**
      * Returns a String representation of the current movement. Only use relevant fields.

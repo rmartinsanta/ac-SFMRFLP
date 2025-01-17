@@ -76,7 +76,6 @@ public class CAPSolution extends Solution<CAPSolution, CAPInstance> {
      *
      * @return current solution score as double
      */
-    @Override
     public double getScore() {
         return this.obj;
     }
@@ -94,7 +93,6 @@ public class CAPSolution extends Solution<CAPSolution, CAPInstance> {
      *
      * @return current solution score as double
      */
-    @Override
     public double recalculateScore() {
         var copy = this.cloneSolution();
         copy.Evaluate();
