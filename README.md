@@ -24,7 +24,27 @@ problem.
 - https://github.com/rmartinsanta/ac-BMSSC
 - https://github.com/rmartinsanta/ac-SFMRFLP
 
+## Compiling the C project
+Install llvm and the OpenMP libraries. For example, in Mac using brew:
+```bash
+brew install llvm
+brew install libomp
+```
 
+Export your compiler path
+```bash
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export CC="/usr/local/opt/llvm/bin/clang"
+export CXX="/usr/local/opt/llvm/bin/clang++"
+```
+
+Generate executable
+```bash
+cmake .
+make
+```
+
+#
 ## Authors of the Autoconfig proposal
 - Raúl Martín Santamaría
 - Manuel López-Ibáñez
