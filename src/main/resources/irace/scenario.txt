@@ -77,14 +77,16 @@ targetRunner <- function(experiment, scenario) {
 ## target.runner, and scenario will also be passed to every call. See
 ## help(target.runner.default) for details.
 targetRunnerParallel <- function(experiments, exec_target_runner, scenario, target_runner) {
-
+  library("httr")
+  library("base64enc")
+  library("rjson")
   integration_key <- "__INTEGRATION_KEY__"
   url <- "http://127.0.0.1:__PORT__/batchExecute"
 
   enc_cmdline <- base64encode(charToRaw(toJSON(experiments)))
   data <- paste0('{"config":"', enc_cmdline, '", "key":"', integration_key, '"}')
 
-  response <- POST(url, content_type_json(), body = data)
+  response <- POST(url, content_type_json(), timeout(24*3600), body = data)
   parsed_response <- content(response, as = "parsed")
   for (i in 1:length(parsed_response)) {
     if (parsed_response[[i]]$cost == "NaN") {
@@ -102,7 +104,7 @@ targetRunnerParallel <- function(experiments, exec_target_runner, scenario, targ
 
 ## The maximum number of runs (invocations of targetRunner) that will
 ## performed. It determines the (maximum) budget of experiments for the tuning.
-maxExperiments = __MAX_EXPERIMENTS__
+maxExperiments =__MAX_EXPERIMENTS__
 
 ## Directory where testing instances are located, either absolute or relative
 ## to current directory.
@@ -140,7 +142,7 @@ testType = "F-test"
 
 ## Specifies how many instances are seen before the first elimination
 ## test. It must be a multiple of eachTest.
-firstTest = 5
+firstTest =5
 
 ## Specifies how many instances are seen between elimination tests.
 # eachTest = 1
