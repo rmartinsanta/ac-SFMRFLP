@@ -5,7 +5,7 @@ java -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9010 -Dc
 -Djava.rmi.server.hostname=192.168.10.114 \
 -Xmx24G \
 -Xms24G \
--jar target/SFMRFLP-0.21-SNAPSHOT.jar \
+-jar target/SFMRFLP-0.22-SNAPSHOT.jar \
 --autoconfig \
 --solver.parallelExecutor=true \
 --solver.nWorkers=32

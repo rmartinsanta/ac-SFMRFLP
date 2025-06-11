@@ -4,7 +4,7 @@ mvn clean package
 java \
 -Xmx24G \
 -Xms24G \
--jar target/SFMRFLP-0.21-SNAPSHOT.jar \
+-jar target/SFMRFLP-0.22-SNAPSHOT.jar \
 --serializers.solution-json.enabled=true \
 --serializers.solution-json.frequency=all \
 --solver.experiments=FinalExperiment \
