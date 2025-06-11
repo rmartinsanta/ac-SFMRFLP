@@ -20,7 +20,7 @@ public class CAPLS extends Improver<CAPSolution, CAPInstance> {
     }
     
     @Override
-    protected CAPSolution _improve(CAPSolution solution) {
+    public CAPSolution improve(CAPSolution solution) {
         boolean improves;
         do {
             improves = switch (this.type){
