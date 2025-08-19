@@ -1,4 +1,7 @@
-# [Autoconfig: SFMRFLP](https://doi.org/XXXXXX)
+# [Autoconfig: SFMRFLP](https://doi.org/10.1016/j.ejor.2024.06.001)
+
+> [!WARNING]
+> An up-to-date and mantained version of this project can be found inside the [Mork Github repo](https://github.com/mork-optimization/mork/example-FLayouts) as an example of how to use the framework. This copy has been archived for reference purposes only.
 
 ## Abstract
 Metaheuristic algorithms have become one of the preferred approaches for
@@ -83,7 +86,20 @@ https://doi.org/10.1016/j.ejor.2021.03.027
 ```
 
 ### DOI Autoconfig
-Pending review
+[10.1016/j.ejor.2024.06.001](https://doi.org/10.1016/j.ejor.2024.06.001)
 
 ### Bibtex Autoconfig
-Pending review
+```bibtex
+@article{Martin2024AutoconfigMork,
+title = {On the automatic generation of metaheuristic algorithms for combinatorial optimization problems},
+journal = {European Journal of Operational Research},
+volume = {318},
+number = {3},
+pages = {740-751},
+year = {2024},
+issn = {0377-2217},
+doi = {https://doi.org/10.1016/j.ejor.2024.06.001},
+url = {https://www.sciencedirect.com/science/article/pii/S0377221724004296},
+author = {Raúl Martín-Santamaría and Manuel López-Ibáñez and Thomas Stützle and J. Manuel Colmenar},
+}
+```
