@@ -1,7 +1,7 @@
 # [Autoconfig: SFMRFLP](https://doi.org/10.1016/j.ejor.2024.06.001)
 
 > [!WARNING]
-> An up-to-date and mantained version of this project can be found inside the [Mork Github repo](https://github.com/mork-optimization/mork/example-FLayouts) as an example of how to use the framework. This copy has been archived for reference purposes only.
+> An up-to-date and mantained version of this project can be found inside the [Mork Github repo](https://github.com/mork-optimization/mork/example-flayouts) as an example of how to use the framework. This copy has been archived for reference purposes only.
 
 ## Abstract
 Metaheuristic algorithms have become one of the preferred approaches for
